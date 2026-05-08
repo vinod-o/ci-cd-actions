@@ -15,3 +15,5 @@ jobs:
     steps:
       - name: prin the char
         run: echo "print the char of vinod"
+      - name: linux command
+        run: ls
