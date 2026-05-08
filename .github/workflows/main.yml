@@ -19,7 +19,7 @@ jobs:
       - name: reading secrets
         run: |
           echo " Docker user name is ${{ vars.DOCKER_USERNAME }}"
-          echo "Docker pass is ${{secrets.DOCKER_PASSWORD}}
+          echo "Docker pass is ${{secrets.DOCKER_PASSWORD}}"
           
         
   namaste:
