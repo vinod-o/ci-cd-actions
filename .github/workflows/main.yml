@@ -7,9 +7,17 @@ on:
 jobs:
   hello-actions:
     runs-on: ubuntu-latest
+    env:
+          NAME: Vinod
+          ROLE: DevOps Engineer
     steps:
       - name: print the text
         run: echo "hello-GitHub Actions"
+      - name: print variables
+        run: |
+          echo "Hello $NAME and Role is $ROLE"
+          
+        
   namaste:
     runs-on: ubuntu-latest
     steps:
