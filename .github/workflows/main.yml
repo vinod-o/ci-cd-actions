@@ -1,11 +1,17 @@
-name: Hello world workflow
-on: 
+name: Hello World
+
+on:
   push:
-    branches: 
+    branches:
       - main
 jobs:
-  hello-job:
+  hello-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: print Hello World
-        run: echo "Hello Githun Actions"
+      - name: print the text
+        run: echo "hello-GitHub Actions"
+  namaste:
+    runs-on: ubuntu-latest
+    steps:
+      - name: prin the char
+        run: echo "print the char of vinod"
