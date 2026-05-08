@@ -16,6 +16,10 @@ jobs:
       - name: print variables
         run: |
           echo "Hello $NAME and Role is $ROLE"
+      - name: reading secrets
+        run: |
+          echo " Docker user name is ${{ vars.DOCKER_USERNAME }}"
+          echo "Docker pass is ${{secrets.DOCKER_PASSWORD}}
           
         
   namaste:
