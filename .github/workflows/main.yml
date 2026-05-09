@@ -30,6 +30,8 @@ jobs:
         run: mvn --version
       - name: check docker
         run: docker --version
+      - name: printing build number
+        run: echo " build number is: ${{ github.run_number }}"
         
   namaste:
     needs: hello-actions
