@@ -21,7 +21,7 @@ jobs:
           echo " Docker user name is ${{ vars.DOCKER_USERNAME }}"
           echo "Docker pass is ${{secrets.DOCKER_PASSWORD}}"
       - name: checkout the code
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
       - name: listing files
         run: ll -a
         
