@@ -26,8 +26,13 @@ jobs:
         run: ls
       - name: view the content
         run: cat hello.txt
+      - name: check maven
+        run: mvn --version
+      - name: check docker
+        run: docker --version
         
   namaste:
+    needs: hello-actions
     runs-on: ubuntu-latest
     steps:
       - name: prin the char
