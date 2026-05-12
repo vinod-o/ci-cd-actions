@@ -8,13 +8,22 @@ jobs:
   hello-actions:
     runs-on: ubuntu-latest
     steps:
-      - uses: jfrog/setup-jfrog-cli@v4
+      - name: set up JFROG CLI
+        uses: jfrog/setup-jfrog-cli@v4
         env: 
           JF_URL: ${{ secrets.JF_URL }}
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
-      - run: |
+      - name: test the configuration
+        run: |
           jf rt ping
+      - name: create dummy artifact
+        run: |
+          mkdir test
+          echo "hello jfrog">test/app.txt
+      - name: upload artifact
+        run: |
+          jf rt upload "test/*" generic-local/
                
     
       
