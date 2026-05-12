@@ -7,37 +7,14 @@ on:
 jobs:
   hello-actions:
     runs-on: ubuntu-latest
-    env:
-          NAME: Vinod
-          ROLE: DevOps Engineer
     steps:
-      - name: print the text
-        run: echo "hello-GitHub Actions"
-      - name: print variables
-        run: |
-          echo "Hello $NAME and Role is $ROLE"
-      - name: reading secrets
-        run: |
-          echo " Docker user name is ${{ vars.DOCKER_USERNAME }}"
-          echo "Docker pass is ${{secrets.DOCKER_PASSWORD}}"
-      - name: checkout the code
-        uses: actions/checkout@v4
-      - name: listing files
-        run: ls
-      - name: view the content
-        run: cat hello.txt
-      - name: check maven
-        run: mvn --version
-      - name: check docker
-        run: docker --version
-      - name: printing build number
-        run: echo " build number is:" ${{ github.run_number }}
-        
-  namaste:
-    needs: hello-actions
-    runs-on: ubuntu-latest
-    steps:
-      - name: prin the char
-        run: echo "print the char of vinod"
-      - name: linux command
-        run: ls
+      - uses: jfrog/setup-jfrog-cli@v4
+        env: 
+          JF_URL: ${{ secrets.JF_URL }}
+          JF_USER: ${{ secrets.JF_USER }}
+          JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+      - run: |
+          jf rt ping
+               
+    
+      
